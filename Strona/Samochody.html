@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/Samochody.css">
+  <script src="js/Licznik.js" defer></script>
+</head>
+<body>
+<header>
+    <h1>Samochody</h1>
+    <nav>
+      <ul>
+        <li><a href="Strona.html">Strona główna</a></li>
+        <li><a href="Ofirmie.html">O firmie</a></li>
+        <li><a href="Marki.html">Marki</a></li>
+        <li><a href="Samochody.html">Samochody</a></li>
+        <li><a href="Salony.html">Salony</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="Zasady.html">Zasady Użytkowania</a></li>
+        <li><a href="PolitykaPrywatnosci.html">Polityka Prywatności</a></li>
+        <li><a href="Ubezpieczenie.html">Ubezpieczenie</a></li>
+        <li><a href="Pytania.html">Pytania</a></li>
+        <li><a href="Nuda.html">Sprawdz Refleks</a></li>
+      </ul>
+    </nav>
+    <div class="status-top-right">
+      <div>
+        <div class="label">Data:</div>
+        <div class="value" id="current-date">--.--.--</div>
+      </div>
+      <div>
+        <div class="label">Czas:</div>
+        <div class="value" id="current-time">--:--:--</div>
+      </div>
+      <div>
+        <div class="label">Liczba odwiedzin:</div>
+        <div class="value" id="visit-count">0</div>
+      </div>
+      <div>
+        <div class="label">Czas na stronie:</div>
+        <div class="value" id="time-on-page">0s</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="table-container">
+      <table id="car-table"></table>
+    </div>
+  </main>
+
+    <footer>
+    <p>Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka.<br />
+       Autor: Łukasz Porowski, TliSKwE na kierunku Energetyka.</p>
+  </footer>
+
+  
+<script>
+  const cars = [
+    ["Mercedes", "C-Class", "250 zł", "2019", "2.0L", "194 KM", "45 000 km"],
+    ["Mercedes", "E-Class", "320 zł", "2020", "2.0L", "211 KM", "38 000 km"],
+    ["Mercedes", "GLA", "280 zł", "2021", "1.6L", "163 KM", "25 000 km"],
+    ["BMW", "5 Series", "260 zł", "2018", "2.0L", "184 KM", "60 000 km"],
+    ["BMW", "3 Series", "350 zł", "2021", "2.0L", "252 KM", "30 000 km"],
+    ["BMW", "X1", "290 zł", "2020", "1.5L", "140 KM", "28 000 km"],
+    ["Audi", "A3", "240 zł", "2017", "1.4L", "150 KM", "75 000 km"],
+    ["Audi", "A4", "280 zł", "2019", "2.0L", "190 KM", "50 000 km"],
+    ["Audi", "Q5", "360 zł", "2021", "2.0L", "252 KM", "22 000 km"],
+    ["Opel", "Astra", "180 zł", "2016", "1.6L", "115 KM", "95 000 km"],
+    ["Opel", "Insignia", "220 zł", "2018", "2.0L", "170 KM", "60 000 km"],
+    ["Opel", "Corsa", "160 zł", "2020", "1.2L", "100 KM", "40 000 km"]
+  ];
+
+  const headers = [
+    "Marka samochodu", 
+    "Model", 
+    "Cena wypożyczenia", 
+    "Rocznik samochodu", 
+    "Pojemność silnika", 
+    "Moc samochodu", 
+    "Przebieg"
+  ];
+
+  const table = document.getElementById("car-table");
+
+  
+  const thead = document.createElement("thead");
+  const headerRow = document.createElement("tr");
+  headers.forEach(header => {
+    const th = document.createElement("th");
+    th.textContent = header;
+    headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+ 
+  const brandCounts = {};
+  cars.forEach(car => {
+    brandCounts[car[0]] = (brandCounts[car[0]] || 0) + 1;
+  });
+
+  const printedBrands = {};
+  const tbody = document.createElement("tbody");
+
+  cars.forEach((car, index) => {
+    const row = document.createElement("tr");
+
+   
+    if (!printedBrands[car[0]]) {
+      const tdBrand = document.createElement("td");
+      tdBrand.textContent = car[0];
+      tdBrand.setAttribute("rowspan", brandCounts[car[0]]);
+      row.appendChild(tdBrand);
+      printedBrands[car[0]] = true;
+    }
+
+   
+    if (index === 2) {
+      const td = document.createElement("td");
+      td.textContent = `${car[1]} / ${car[2]}`;
+      td.setAttribute("colspan", "2");
+      td.style.background = "#e0f7fa";
+      row.appendChild(td);
+      for (let i = 3; i < car.length; i++) {
+        const td = document.createElement("td");
+        td.textContent = car[i];
+        row.appendChild(td);
+      }
+    }
+
+    
+    else if (index === 9) {
+      for (let i = 1; i < 5; i++) {
+        const td = document.createElement("td");
+        td.textContent = car[i];
+        row.appendChild(td);
+      }
+
+      const tdPower = document.createElement("td");
+      tdPower.textContent = car[5];
+      tdPower.setAttribute("rowspan", "2");
+      tdPower.style.background = "#ffe0b2";
+      row.appendChild(tdPower);
+
+      const tdMileage = document.createElement("td");
+      tdMileage.textContent = car[6];
+      row.appendChild(tdMileage);
+    }
+
+    else if (index === 10) {
+      for (let i = 1; i < 5; i++) {
+        const td = document.createElement("td");
+        td.textContent = car[i];
+        row.appendChild(td);
+      }
+     
+      const tdMileage = document.createElement("td");
+      tdMileage.textContent = car[6];
+      row.appendChild(tdMileage);
+    }
+
+   
+    else {
+      for (let i = 1; i < car.length; i++) {
+        const td = document.createElement("td");
+        td.textContent = car[i];
+        row.appendChild(td);
+      }
+    }
+
+    tbody.appendChild(row);
+  });
+
+  table.appendChild(tbody);
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/Ubezpieczenie.css">
+    <script src="js/Kalkulator.js" defer></script>
+  </head>
+ <body>
+  <header>
+    <h1>Ubezpieczenie</h1>
+    <nav>
+      <ul>
+        <li><a href="Strona.html">Strona główna</a></li>
+        <li><a href="Ofirmie.html">O firmie</a></li>
+        <li><a href="Marki.html">Marki</a></li>
+        <li><a href="Samochody.html">Samochody</a></li>
+        <li><a href="Salony.html">Salony</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="Zasady.html">Zasady Użytkowania</a></li>
+        <li><a href="PolitykaPrywatnosci.html">Polityka Prywatności</a></li>
+        <li><a href="Ubezpieczenie.html">Ubezpieczenie</a></li>
+        <li><a href="Pytania.html">Pytania</a></li>
+        <li><a href="Nuda.html">Sprawdz Refleks</a></li>
+      </ul>
+    </nav>
+    <div class="status-top-right">
+      <div>
+        <div class="label">Data:</div>
+        <div class="value" id="current-date">--.--.--</div>
+      </div>
+      <div>
+        <div class="label">Czas:</div>
+        <div class="value" id="current-time">--:--:--</div>
+      </div>
+      <div>
+        <div class="label">Liczba odwiedzin:</div>
+        <div class="value" id="visit-count">0</div>
+      </div>
+      <div>
+        <div class="label">Czas na stronie:</div>
+        <div class="value" id="time-on-page">0s</div>
+      </div>
+    </div>
+  </header>
+<main>
+    <section class="calculator">
+      <h2>Kalkulator ubezpieczenia (1 dzień)</h2>
+      <form id="insurance-form">
+  <label>Cena samochodu (PLN):
+    <input type="number" id="carPrice" required />
+  </label>
+
+  <label>Moc silnika (KM):
+    <input type="number" id="horsePower" required />
+  </label>
+
+  <label>Marka:
+    <select id="brand">
+      <option value="standard">Standard</option>
+      <option value="premium">Premium</option>
+    </select>
+  </label>
+
+  <label>Rok urodzenia kierowcy:
+    <input type="number" id="birthYear" required />
+  </label>
+
+  <button type="submit">Oblicz ubezpieczenie</button>
+</form>
+
+<div id="result" class="result-box">Wynik pojawi się tutaj po obliczeniu.</div>
+    </section>
+  </main>
+
+
+  <footer>
+    <p>Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka.<br />
+       Autor: Łukasz Porowski, TliSKwE na kierunku Energetyka.</p>
+  </footer>
+
+  
+</body>
+</html>

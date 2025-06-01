@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/Mapa.css">
+    <script src="js/Licznik.js" defer></script>
+  </head>
+ <body>
+  <header>
+    <h1>Salony</h1>
+    <nav>
+      <ul>
+        <li><a href="Strona.html">Strona główna</a></li>
+        <li><a href="Ofirmie.html">O firmie</a></li>
+        <li><a href="Marki.html">Marki</a></li>
+        <li><a href="Samochody.html">Samochody</a></li>
+        <li><a href="Salony.html">Salony</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="Zasady.html">Zasady Użytkowania</a></li>
+        <li><a href="PolitykaPrywatnosci.html">Polityka Prywatności</a></li>
+        <li><a href="Ubezpieczenie.html">Ubezpieczenie</a></li>
+        <li><a href="Pytania.html">Pytania</a></li>
+        <li><a href="Nuda.html">Sprawdz Refleks</a></li>
+      </ul>
+    </nav>
+    <div class="status-top-right">
+      <div>
+        <div class="label">Data:</div>
+        <div class="value" id="current-date">--.--.--</div>
+      </div>
+      <div>
+        <div class="label">Czas:</div>
+        <div class="value" id="current-time">--:--:--</div>
+      </div>
+      <div>
+        <div class="label">Liczba odwiedzin:</div>
+        <div class="value" id="visit-count">0</div>
+      </div>
+      <div>
+        <div class="label">Czas na stronie:</div>
+        <div class="value" id="time-on-page">0s</div>
+      </div>
+    </div>
+  </header>
+<main>
+  <div class="map-container">
+    <img src="images/mapa.png" alt="Mapa Polski" class="map-image" />
+
+
+    <div class="map-marker" style="top: 45%; left: 68%;">
+      <span>Warszawa ul. Michałowa 73<br> Godziny Otwarcia:<br>Poniedziałek  8:00-17:00<br>Wtorek  8:00-17:00<br>Środa  8:00-17:00<br>CZwartek  8:00-17:00<br>Piątek  8:00-17:00<br>Sobota  9:00-16:00</span>
+    </div>
+    <div class="map-marker" style="top: 82%; left: 58%;">
+      <span>Kraków ul. Spartańska 1<br> Godziny Otwarcia:<br>Poniedziałek  8:00-17:00<br>Wtorek  8:00-17:00<br>Środa  8:00-17:00<br>CZwartek  8:00-17:00<br>Piątek  8:00-17:00<br>Sobota  9:00-16:00</span>
+    </div>
+    <div class="map-marker" style="top: 23%; left: 7%;">
+      <span>Szczecin ul. Młotowa 100<br> Godziny Otwarcia:<br>Poniedziałek  8:00-17:00<br>Wtorek  8:00-17:00<br>Środa  8:00-17:00<br>CZwartek  8:00-17:00<br>Piątek  8:00-17:00<br>Sobota  9:00-16:00</span>
+    </div>
+    <div class="map-marker" style="top: 42%; left: 28%;">
+      <span>Poznan ul. Wielkopolska 6<br> Godziny Otwarcia:<br>Poniedziałek  8:00-17:00<br>Wtorek  8:00-17:00<br>Środa  8:00-17:00<br>CZwartek  8:00-17:00<br>Piątek  8:00-17:00<br>Sobota  9:00-16:00</span>
+    </div>
+    <div class="map-marker" style="top: 8%; left: 44%;">
+      <span>Gdańsk ul. Grobla 5<br> Godziny Otwarcia:<br>Poniedziałek  8:00-17:00<br>Wtorek  8:00-17:00<br>Środa  8:00-17:00<br>CZwartek  8:00-17:00<br>Piątek  8:00-17:00<br>Sobota  9:00-16:00</span>
+    </div>
+  </div>
+</main>
+
+  <footer>
+    <p>Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka.<br />
+       Autor: Łukasz Porowski, TliSKwE na kierunku Energetyka.</p>
+  </footer>
+
+  <script>
+  document.querySelectorAll('.map-marker').forEach(marker => {
+    marker.addEventListener('click', () => {
+      marker.classList.toggle('active');
+    });
+  });
+  </script>
+</body>
+</html>
+

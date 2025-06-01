@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/Pytania.css">
+    <script src="js/Licznik.js" defer></script>
+  </head>
+ <body>
+  <header>
+    <h1>Pytania</h1>
+    <nav>
+      <ul>
+        <li><a href="Strona.html">Strona główna</a></li>
+        <li><a href="Ofirmie.html">O firmie</a></li>
+        <li><a href="Marki.html">Marki</a></li>
+        <li><a href="Samochody.html">Samochody</a></li>
+        <li><a href="Salony.html">Salony</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="Zasady.html">Zasady Użytkowania</a></li>
+        <li><a href="PolitykaPrywatnosci.html">Polityka Prywatności</a></li>
+        <li><a href="Ubezpieczenie.html">Ubezpieczenie</a></li>
+        <li><a href="Pytania.html">Pytania</a></li>
+        <li><a href="Nuda.html">Sprawdz Refleks</a></li>
+      </ul>
+    </nav>
+    <div class="status-top-right">
+      <div>
+        <div class="label">Data:</div>
+        <div class="value" id="current-date">--.--.--</div>
+      </div>
+      <div>
+        <div class="label">Czas:</div>
+        <div class="value" id="current-time">--:--:--</div>
+      </div>
+      <div>
+        <div class="label">Liczba odwiedzin:</div>
+        <div class="value" id="visit-count">0</div>
+      </div>
+      <div>
+        <div class="label">Czas na stronie:</div>
+        <div class="value" id="time-on-page">0s</div>
+      </div>
+    </div>
+  </header>
+
+<form id="contact-form" action="#" method="post" enctype="multipart/form-data">
+  <h2 class="form-title">Formularz kontaktowy</h2>
+ 
+  <label for="fname">Imię:</label>
+  <input type="text" id="fname" name="fname" required />
+
+
+  <label for="lname">Nazwisko:</label>
+  <input type="text" id="lname" name="lname" required />
+
+
+  <label for="email">Adres e-mail:</label>
+  <input type="email" id="email" name="email" required />
+
+
+  <label for="phone">Numer telefonu:</label>
+  <input type="tel" id="phone" name="phone" required pattern="[0-9+ ]{7,15}" />
+
+
+  <label for="location">Najbliższa wypożyczalnia:</label>
+  <select id="location" name="location" required>
+    <option value="">--Wybierz--</option>
+    <option value="Warszawa">Warszawa</option>
+    <option value="Kraków">Kraków</option>
+    <option value="Gdańsk">Gdańsk</option>
+    <option value="Poznań">Poznań</option>
+    <option value="Sczecin">Szczecin</option>
+  </select>
+
+
+  <fieldset>
+    <legend>Preferowany kontakt:</legend>
+    <label><input type="radio" name="contactMethod" value="telefon" required> Telefon</label><br>
+    <label><input type="radio" name="contactMethod" value="email"> E-mail</label>
+  </fieldset>
+
+ 
+  <label>
+    <input type="checkbox" name="privacy" required>
+    Zgadzam się na przetwarzanie danych osobowych
+  </label>
+
+ 
+  <label for="message">Treść pytania:</label>
+  <textarea id="message" name="message" rows="5" required></textarea>
+
+
+  <label for="preferredDate">Preferowana data kontaktu:</label>
+  <input type="date" id="preferredDate" name="preferredDate" />
+
+
+  <label for="attachment">Załącz plik (opcjonalnie):</label>
+  <input type="file" id="attachment" name="attachment" accept=".pdf,.jpg,.png" />
+
+  <button type="submit">Wyślij pytanie</button>
+</form>
+
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault(); 
+
+    alert("Dziękujemy za przesłanie pytania! Skontaktujemy się z Tobą wkrótce.");
+    this.reset();
+  });
+</script>
+
+
+  <footer>
+    <p>Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka.<br />
+       Autor: Łukasz Porowski, TliSKwE na kierunku Energetyka.</p>
+  </footer>
+
+  
+</body>
+</html>

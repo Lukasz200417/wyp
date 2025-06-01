@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/Marki.css">
+  <script src="js/Licznik.js" defer></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    const showSlide = (index) => {
+      slides.forEach((slide, i) => {
+        slide.style.display = i === index ? 'block' : 'none';
+      });
+    };
+
+    const handleSlideNavigation = (event) => {
+      if (event.key === 'ArrowRight') {
+        currentSlide = Math.min(currentSlide + 1, slides.length - 1);
+      } else if (event.key === 'ArrowLeft') {
+        currentSlide = Math.max(currentSlide - 1, 0);
+      }
+      showSlide(currentSlide);
+    };
+
+    document.body.addEventListener('keydown', handleSlideNavigation);
+
+    showSlide(currentSlide);
+  });
+  </script>
+</head>
+<body>
+<header>
+    <h1>Marki</h1>
+    <nav>
+      <ul>
+        <li><a href="Strona.html">Strona główna</a></li>
+        <li><a href="Ofirmie.html">O firmie</a></li>
+        <li><a href="Marki.html">Marki</a></li>
+        <li><a href="Samochody.html">Samochody</a></li>
+        <li><a href="Salony.html">Salony</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="Zasady.html">Zasady Użytkowania</a></li>
+        <li><a href="PolitykaPrywatnosci.html">Polityka Prywatności</a></li>
+        <li><a href="Ubezpieczenie.html">Ubezpieczenie</a></li>
+        <li><a href="Pytania.html">Pytania</a></li>
+        <li><a href="Nuda.html">Sprawdz Refleks</a></li>
+      </ul>
+    </nav>
+    <div class="status-top-right">
+      <div>
+        <div class="label">Data:</div>
+        <div class="value" id="current-date">--.--.--</div>
+      </div>
+      <div>
+        <div class="label">Czas:</div>
+        <div class="value" id="current-time">--:--:--</div>
+      </div>
+      <div>
+        <div class="label">Liczba odwiedzin:</div>
+        <div class="value" id="visit-count">0</div>
+      </div>
+      <div>
+        <div class="label">Czas na stronie:</div>
+        <div class="value" id="time-on-page">0s</div>
+      </div>
+    </div>
+  </header>
+<main>
+    <div class="presentation">
+      <div class="slide">
+      <img src="images/mercedes.png"/>
+        <h2>Mercedes-Benz</h2><p>Mercedes-Benz to niemiecka marka znana z luksusowych i innowacyjnych samochodów. Została założona w 1926 roku i jest częścią koncernu Daimler AG. Symbol trójramiennej gwiazdy oznacza dominację na lądzie, wodzie i w powietrzu. Marka słynie z wysokiej jakości wykonania, zaawansowanej technologii i eleganckiego designu. Mercedes produkuje zarówno auta osobowe, jak i ciężarowe, a także rozwija elektromobilność pod submarką EQ.</p>
+      </div>
+      <div class="slide">
+      <img src="images/bmw.png"/>
+        <h2>BMW</h2><p>BMW (Bayerische Motoren Werke) to niemiecki producent samochodów i motocykli, założony w 1916 roku. Firma początkowo zajmowała się produkcją silników lotniczych. Dziś BMW jest synonimem sportowej elegancji i doskonałych właściwości jezdnych. Marka oferuje szeroką gamę modeli – od miejskich aut po luksusowe limuzyny i SUV-y. BMW aktywnie inwestuje w technologie elektryczne i autonomiczne pod marką BMW i.</p>
+      </div>
+      <div class="slide">
+      <img src="images/audi.png"/>
+        <h2>Audi</h2><p>Audi to niemiecka marka premium należąca do koncernu Volkswagen. Jej hasło „Vorsprung durch Technik” oznacza „Przewaga dzięki technice”. Firma powstała w 1909 roku, a dziś słynie z nowoczesnego designu, cyfrowych kokpitów i napędu quattro. Audi produkuje auta klasy premium, w tym sportowe modele z serii S i RS. Marka dynamicznie rozwija też linię elektrycznych pojazdów pod nazwą Audi e-tron.</p>
+      </div>
+      <div class="slide">
+      <img src="images/opel.png"/>
+        <h2>Opel</h2><p>Opel to niemiecka marka motoryzacyjna założona w 1862 roku, początkowo produkująca maszyny do szycia. Produkcję samochodów rozpoczęła w 1899 roku. Opel był długo częścią General Motors, a od 2017 roku należy do koncernu Stellantis. Marka znana jest z praktycznych, niezawodnych i przystępnych cenowo aut. Opel koncentruje się obecnie na nowoczesnych, oszczędnych silnikach i modelach elektrycznych.</p>
+      </div>
+      <div class="slide">
+      <img src="images/peugeot.png"/>
+        <h2>Peugeot</h2><p>Peugeot to francuska marka z ponad 200-letnią historią, początkowo produkująca młynki do kawy i rowery. Produkcję samochodów rozpoczęto w 1889 roku. Dziś Peugeot jest częścią koncernu Stellantis i znany jest z eleganckiego designu oraz komfortowego prowadzenia. Marka zdobywa uznanie za innowacyjne wnętrza z koncepcją i-Cockpit. Peugeot inwestuje także w elektromobilność i oferuje szeroką gamę hybryd i modeli elektrycznych.</p>
+      
+    </div>
+    </div>
+  </main>
+    <footer>
+    <p>Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka.<br />
+       Autor: Łukasz Porowski, TliSKwE na kierunku Energetyka.</p>
+  </footer>
+</body>
+</html>
